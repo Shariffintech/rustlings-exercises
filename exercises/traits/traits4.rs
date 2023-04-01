@@ -4,8 +4,6 @@
 // Don't change any line other than the marked one.
 // Execute `rustlings hint traits4` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 pub trait Licensed {
     fn licensing_info(&self) -> String {
         "some information".to_string()
@@ -20,8 +18,8 @@ impl Licensed for SomeSoftware {}
 impl Licensed for OtherSoftware {}
 
 // YOU MAY ONLY CHANGE THE NEXT LINE
-fn compare_license_types(software: ??, software_two: ??) -> bool {
-    software.licensing_info() == software_two.licensing_info()
+fn compare_license_types(software: impl Licensed, other_software: impl Licensed) -> bool {
+    software.licensing_info() == other_software.licensing_info()
 }
 
 #[cfg(test)]
